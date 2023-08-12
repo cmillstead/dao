@@ -44,7 +44,6 @@ describe('DAO', () => {
     transaction = await token.connect(deployer).transfer(investor5.address, ether(200000));
     await transaction.wait();
 
-
     // deploy DAO
     // Set quorum to > 50% of the total supply. 500k + 1 wei
     const DAO = await ethers.getContractFactory('DAO');
@@ -68,7 +67,6 @@ describe('DAO', () => {
             expect(await dao.quorum()).to.equal('500000000000000000000001');
         });
     });
-
     
     describe('Proposal creation', () => {
         let transaction, result;
@@ -144,7 +142,6 @@ describe('DAO', () => {
         });
     });
 
-
     describe('Governance', () => {
         let transaction, result;
 
@@ -180,8 +177,6 @@ describe('DAO', () => {
             it('emits a finalize event', async () => {
                 await expect(transaction).to.emit(dao, 'Finalize').withArgs(1);
             });
-
-
 
         });
 

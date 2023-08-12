@@ -69,7 +69,6 @@ contract DAO {
         require(address(this).balance >= _amount, "Not enough balance");
 
         proposalCount++;
-        // require(token.balanceOf(msg.sender) >= quorum, "Not enough tokens");
 
         proposals[proposalCount] = Proposal(
             proposalCount,
@@ -90,9 +89,6 @@ contract DAO {
 
     function vote(uint256 _id) external onlyInvestor {
         Proposal storage proposal = proposals[_id];
-
-        // require(proposal.finalized == false, "Proposal already finalized");
-        // require(proposal.votes < quorum, "Quorum already reached");
 
         // don't let investors vote twice
         require(!votes[msg.sender][_id], "Investor can only vote once");

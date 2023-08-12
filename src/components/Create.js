@@ -3,7 +3,6 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import { ethers } from 'ethers';
-import { Placeholder } from 'react-bootstrap';
 
 const Create = ({provider, dao, setIsLoading}) => {
     const [name, setName] = useState('');
@@ -14,7 +13,6 @@ const Create = ({provider, dao, setIsLoading}) => {
     const createHandler = async (event) => {
         event.preventDefault();
         setIsWaiting(true);
-        // const [name, amount, address] = event.target.elements;
 
         try {
             const signer = await provider.getSigner()
